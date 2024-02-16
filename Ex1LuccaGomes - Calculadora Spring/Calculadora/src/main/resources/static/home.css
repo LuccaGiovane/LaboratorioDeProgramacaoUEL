@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif; /* Fonte padrão */
+    background-color: #f0f0f0; /* Cor de fundo */
+}
+
+form {
+    width: 300px; /* Largura do formulário */
+    margin: 0 auto; /* Centralizar o formulário na página */
+    padding: 20px; /* Espaçamento interno do formulário */
+    background-color: #fff; /* Cor de fundo do formulário */
+    border: 1px solid #ccc; /* Borda ao redor do formulário */
+    border-radius: 5px; /* Cantos arredondados do formulário */
+}
+
+label {
+    display: block; /* Exibir cada rótulo em uma linha separada */
+    margin-bottom: 10px; /* Espaçamento entre os rótulos */
+}
+
+input[type="number"] {
+    /* Remova a largura total definida anteriormente */
+    width: auto;
+    /* Defina o espaçamento interno e a margem inferior */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    /* Ajuste o tamanho dos campos para corresponder ao tamanho do botão */
+    width: calc(100% - 20px); /* 100% da largura menos o espaçamento interno */
+
+}
+
+select {
+    width: 100%; /* Largura total do seletor */
+    padding: 8px; /* Espaçamento interno do seletor */
+    margin-bottom: 10px; /* Espaçamento entre o seletor e outros elementos */
+    border: 1px solid #ccc; /* Borda ao redor do seletor */
+    border-radius: 3px; /* Cantos arredondados do seletor */
+
+}
+
+input[type="submit"] {
+    width: 100%; /* Largura total do botão de envio */
+    padding: 10px; /* Espaçamento interno do botão de envio */
+    background-color: #007bff; /* Cor de fundo do botão de envio */
+    color: #fff; /* Cor do texto do botão de envio */
+    border: none; /* Remover borda do botão de envio */
+    border-radius: 3px; /* Cantos arredondados do botão de envio */
+    cursor: pointer; /* Alterar cursor ao passar sobre o botão de envio */
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Cor de fundo do botão de envio ao passar o mouse */
+}

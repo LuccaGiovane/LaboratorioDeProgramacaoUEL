@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/resultado.css}">
+    <title>Resultado</title>
+</head>
+<body>
+    <h1 th:text="'Resultado da ' + ${nomeOperacao}"></h1>
+    <p th:text="'O resultado da ' + ${nomeOperacao} + ' é: ' + ${resultado}"></p>
+
+    <div>
+        <a href="/" class="btn">Voltar para a página inicial</a>
+    </div>
+</body>
+</html>

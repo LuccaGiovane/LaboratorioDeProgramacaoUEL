@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center; /* Centraliza o conteúdo na horizontal */
+    padding-top: 50px; /* Adiciona espaço acima do conteúdo */
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 20px; /* Adiciona espaço entre o parágrafo e o botão */
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
