@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/novo-contato.css}">
+    <title>Cadastro</title>
+
+</head>
+<body>
+   <form action="#"
+         th:action="@{/adicionar-contato}"
+         th:object="${contato}" method="post">
+      <label for="nome">Nome: </label>
+      <input type="text" th:field="*{nome}" id="nome">
+      <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+      <br/>
+      <label for="endereco">Endereço:</label>
+      <input type="text" th:field="*{endereco}" id="endereco">
+      <br/>
+      <label for="email">Email:</label>
+      <input type="email" th:field="*{email}" id="email">
+      <br/>
+      <label for="telefone">Telefone:*</label>
+      <input type="text" th:field="*{telefone}" id="telefone">
+      <span th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></span>
+      <br/>
+      <label for="dataNascimento">Data de nascimento</label>
+      <input type="date" th:field="*{dataNascimento}" id="dataNascimento"/>
+      <br/>
+      <input type="submit" value="Adicionar">
+   </form>
+</body>
+</html>
