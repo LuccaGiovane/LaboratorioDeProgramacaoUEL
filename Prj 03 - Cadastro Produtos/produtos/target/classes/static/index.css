@@ -1,0 +1,67 @@
+/* Estilo para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Estilo para o contêiner principal */
+div {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Estilo para o cabeçalho principal */
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilo para a tabela de produtos */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Estilo para as células do cabeçalho */
+th {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Estilo para as células de dados */
+td {
+    padding: 10px;
+}
+
+/* Estilo para as linhas alternadas */
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilo para a mensagem de nenhum produto encontrado */
+h2.th-empty {
+    color: #dc3545;
+    font-style: italic;
+}
+
+/* Estilo para o botão "Adicionar um novo produto" */
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 20px; /* Adiciona espaço entre o parágrafo e o botão */
+}
+
+
+button:hover {
+    background-color: #218838;
+}
