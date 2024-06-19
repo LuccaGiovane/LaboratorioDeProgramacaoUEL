@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/novo-restaurante.css}">
+    <title>Cadastro</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/adicionar-restaurante}"
+      th:object="${restaurante}" method="post">
+    <label for="nome">Nome: </label>
+    <input type="text" th:field="*{nome}" id="nome">
+    <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+    <br/>
+    <input type="submit" value="Adicionar">
+</form>
+</body>
+</html>

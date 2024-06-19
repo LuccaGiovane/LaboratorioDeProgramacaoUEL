@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrinho de Compras</title>
+    <!-- Incluindo Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/carrinho.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Carrinho de Compras</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Restaurante</th>
+            <th>Nome do Prato</th>
+            <th>Descrição do Prato</th>
+            <th>Quantidade</th>
+            <th>Preço Total do Produto</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Loop para exibir os itens no carrinho -->
+        <tr th:each="item : ${sessionCarrinho}">
+            <td th:text="${item.nomeRestaurante}"></td>
+            <td th:text="${item.nome}"></td>
+            <td th:text="${item.descricao}"></td>
+            <td>
+                <span th:text="${item.quantidadeCarrinho}"></span>
+            </td>
+            <td th:text="${item.valorTotalCarrinho}"></td>
+            <td>
+                <div class="btn-group" role="group">
+                    <form th:action="@{/carrinho/incrementar/{id}(id=${item.id})}" method="post">
+                        <button type="submit" class="btn btn-primary mr-2">+</button> <!-- Botão para incrementar -->
+                    </form>
+                    <form th:action="@{/carrinho/decrementar/{id}(id=${item.id})}" method="post">
+                        <button type="submit" class="btn btn-warning mr-2">-</button> <!-- Botão para diminuir -->
+                    </form>
+                    <a th:href="@{/carrinho/remover/{id}(id=${item.id})}" class="btn btn-danger">Remover</a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">TOTAL:</td>
+            <td th:text="${quantidadeTotalItens}"></td>
+            <td th:text="${valorTotalCarrinho}"></td>
+            <td></td> <!-- Ações -->
+        </tr>
+        </tbody>
+    </table>
+    <!-- Botão para voltar -->
+    <a href="/index" class="btn btn-primary">Voltar</a>
+</div>
+</body>
+</html>

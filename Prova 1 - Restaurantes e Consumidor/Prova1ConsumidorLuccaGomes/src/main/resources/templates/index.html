@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Restaurantes</title>
+    <!-- Incluindo Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Incluindo CSS personalizado -->
+    <link rel="stylesheet" th:href="@{/index.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Lista de Restaurantes</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Ações</th> <!-- Nova coluna para ações -->
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Loop para exibir os restaurantes -->
+        <tr th:each="restaurante : ${restaurantes}">
+            <!-- <td th:text="${restaurante.id}"></td> -->
+            <td th:text="${restaurante.nome}"></td>
+            <td>
+                <!-- Botão para mostrar cardapio -->
+                <a th:href="@{'/cardapio/' + ${restaurante.id}}" class="btn btn-primary btn-sm">Cardapio</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- Botão para ver carrinho do restaurante na session-->
+
+</div>
+</body>
+</html>

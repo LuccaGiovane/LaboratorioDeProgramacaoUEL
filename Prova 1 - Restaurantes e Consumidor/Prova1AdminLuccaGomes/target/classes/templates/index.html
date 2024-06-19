@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Restaurantes</title>
+    <!-- Incluindo Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Incluindo CSS personalizado -->
+    <link rel="stylesheet" th:href="@{/index.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Lista de Restaurantes</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Ações</th> <!-- Nova coluna para ações -->
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Loop para exibir os restaurantes -->
+        <tr th:each="restaurante : ${restaurantes}">
+           <!-- <td th:text="${restaurante.id}"></td> -->
+            <td th:text="${restaurante.nome}"></td>
+            <td>
+                <!-- Botão de edição -->
+                <a th:href="@{'/editar/' + ${restaurante.id}}" class="btn btn-primary btn-sm">Editar</a>
+                <!-- Botão para mostrar cardapio -->
+                <a th:href="@{'/cardapio/' + ${restaurante.id}}" class="btn btn-primary btn-sm">Cardapio</a>
+                <!-- Botão de remoção -->
+                <a th:href="@{'/remover/' + ${restaurante.id}}" class="btn btn-danger btn-sm">Remover</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- Botão para adicionar restaurante -->
+    <a href="/novo-restaurante" class="btn btn-success btn-sm">Adicionar Restaurante</a>
+    </div>
+</body>
+</html>

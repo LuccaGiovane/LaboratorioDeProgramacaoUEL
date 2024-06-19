@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Prato</title>
+    <!-- Incluindo Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/novo-item-cardapio.css}">
+    <script>
+        function validarPreco() {
+            var preco = document.getElementById("preco").value;
+            // Verifica se o valor inserido é numérico e maior que zero
+            if (isNaN(preco) || parseFloat(preco) <= 0) {
+                alert("Insira um valor numérico maior que 0 para o preço.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1>Adicionar Prato</h1>
+    <form method="post" th:action="@{/adicionar-prato}" onsubmit="return validarPreco();">
+        <div class="form-group">
+            <label for="nome">Nome do Prato <span class="text-danger">*</span>:</label>
+            <input type="text" class="form-control" id="nome" name="nome" th:field="*{itemCardapio.nome}">
+        </div>
+        <div class="form-group">
+            <label for="descricao">Descrição:</label>
+            <input type="text" class="form-control" id="descricao" name="descricao" th:field="*{itemCardapio.descricao}">
+        </div>
+        <div th:if="${#fields.hasErrors('itemCardapio.preco')}" class="alert alert-danger">
+            <p>Erro no preço do prato: <span th:errors="*{itemCardapio.preco}"></span></p>
+        </div>
+        <div class="form-group">
+            <label for="preco">Preço do Prato <span class="text-danger">*</span>:</label>
+            <!-- Alterando o tipo para text -->
+            <input type="text" class="form-control" id="preco" name="preco" th:field="*{itemCardapio.preco}">
+        </div>
+
+        <!-- Passando o ID do restaurante como um campo oculto -->
+        <input type="hidden" th:name="idRestaurante" th:value="${restaurante.id}">
+        <button type="submit" class="btn btn-primary">Adicionar</button>
+
+        <button onclick="window.history.back();" class="btn btn-secondary">Voltar</button>
+    </form>
+</div>
+</body>
+</html>

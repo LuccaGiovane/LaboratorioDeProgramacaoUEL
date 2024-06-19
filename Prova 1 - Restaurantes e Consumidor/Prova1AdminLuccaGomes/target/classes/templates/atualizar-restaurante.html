@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Atualizar Restaurante</title>
+    <!-- Incluindo Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/atualizar-restaurante.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Atualizar Restaurante</h1>
+    <form th:action="@{/atualizar/{id}(id=${restaurante.id})}" method="post">
+        <!-- Adicionando campo para o nome do restaurante -->
+        <div class="form-group">
+            <label for="nome">Nome do Restaurante:</label>
+            <input type="text" class="form-control" id="nome" name="nome" th:value="${restaurante.nome}" required>
+        </div>
+        <!-- Adicionando botão de enviar formulário -->
+        <button type="submit" class="btn btn-primary">Atualizar</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cardápio do Restaurante</title>
+  <!-- Incluindo Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Incluindo CSS personalizado -->
+  <link rel="stylesheet" th:href="@{/cardapio.css}">
+</head>
+<body>
+<div class="container">
+  <h1>Cardápio do Restaurante <span th:text="${restaurante.nome}"></span></h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Preço</th>
+      <th>Editar</th>
+      <th>Apagar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Loop para exibir os itens do cardápio -->
+    <tr th:each="item : ${itensCardapio}">
+      <td th:text="${item.nome}"></td>
+      <td th:text="${item.descricao}"></td>
+      <td th:text="${item.preco}"></td>
+      <!-- Botões de editar e apagar -->
+      <td>
+        <a th:href="@{/editar-prato/{id}(id=${item.id})}" class="btn btn-info btn-sm">Editar</a>
+      </td>
+      <td>
+        <a th:href="@{/apagar-prato/{id}(id=${item.id})}" class="btn btn-danger btn-sm">Apagar</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <!-- Botão para voltar -->
+  <a href="/index" class="btn btn-primary">Voltar</a>
+
+  <!-- Botão para adicionar um prato ao cardápio -->
+  <a th:href="@{/novo-item-cardapio/{id}(id=${restaurante.id})}" class="btn btn-success btn-sm">Adicionar Prato</a>
+
+
+</div>
+</body>
+</html>

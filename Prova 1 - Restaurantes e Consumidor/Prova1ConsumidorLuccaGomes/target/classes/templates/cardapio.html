@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cardápio do Restaurante</title>
+    <!-- Incluindo Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Incluindo CSS personalizado -->
+    <link rel="stylesheet" th:href="@{/cardapio.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Cardápio do Restaurante <span th:text="${restaurante.nome}"></span></h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Carrinho</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Loop para exibir os itens do cardápio -->
+        <tr th:each="item : ${itensCardapio}">
+            <td th:text="${item.nome}"></td>
+            <td th:text="${item.descricao}"></td>
+            <td th:text="${item.preco}"></td>
+            <td>
+                <!-- Formulário para adicionar ao carrinho -->
+            <form th:action="@{/carrinho/{id}(id=${item.id})}" method="post">
+                <input type="number" name="quantidade" value="1" min="1"> <!-- Campo para quantidade -->
+                <button type="submit" class="btn btn-success">Adicionar ao Carrinho</button>
+            </form>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- Botão para voltar -->
+    <a href="/index" class="btn btn-primary">Voltar</a>
+
+    <!-- Botão para ver o carrinho -->
+    <a href="/carrinho" class="btn btn-info">Ver Carrinho</a>
+</div>
+</body>
+</html>

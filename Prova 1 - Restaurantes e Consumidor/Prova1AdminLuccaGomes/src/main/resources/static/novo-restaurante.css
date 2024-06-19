@@ -1,0 +1,46 @@
+/* Estilo para o cabeçalho */
+h1 {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Estilo para o formulário */
+form {
+    width: 50%; /* Ajuste conforme necessário */
+    margin: 20px auto;
+}
+
+/* Estilo para o rótulo do campo */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Estilo para o campo de entrada */
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Estilo para a mensagem de erro */
+span.error {
+    color: red;
+}
+
+/* Estilo para o botão "Adicionar" */
+input[type="submit"] {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #218838;
+}
